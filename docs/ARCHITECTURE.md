@@ -72,7 +72,7 @@ flowchart TD
     LLM -. shared .- Review
     LLM -. shared .- PostMortem
 
-    classDef shared fill:#eef,stroke:#447,stroke-width:1px
+    classDef shared fill:#3b4cca,stroke:#1f2a8a,stroke-width:1px,color:#fff
 ```
 
 ### Multi-agent fan-out (optional)

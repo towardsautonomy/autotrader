@@ -88,12 +88,12 @@ streams every event over SSE so you can watch the swarm work in real
 time.
 
 ```mermaid
-flowchart LR
+flowchart TD
     LLM["one LLM provider<br/>(shared)"]:::shared
     Scout["SCOUT<br/>~2 min"]
     Macro["MACRO<br/>once/session"]
     Q["candidate queue"]
-    Decision["DECISION<br/>~5 min<br/>(opt. multi-agent fan-out)"]
+    Decision["DECISION<br/>~5 min<br/>(opt. fan-out)"]
     Risk["RISK ENGINE"]
     Broker["broker"]
     Pos["open position"]
@@ -114,7 +114,7 @@ flowchart LR
     LLM -. shared .- Rev
     LLM -. shared .- PM
 
-    classDef shared fill:#eef,stroke:#447,stroke-width:1px
+    classDef shared fill:#3b4cca,stroke:#1f2a8a,stroke-width:1px,color:#fff
 ```
 
 Key invariants:
