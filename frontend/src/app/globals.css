@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #05080a;
+  --bg-panel: #0a0f14;
+  --bg-raised: #0f161d;
+  --border: #1a2631;
+  --border-bright: #2a3e4f;
+  --accent: #22d39b;
+  --accent-dim: #0e7d5b;
+  --accent-glow: rgba(34, 211, 155, 0.35);
+  --warn: #f5b84a;
+  --danger: #ff5c7a;
+  --text: #d3dde4;
+  --text-dim: #6b7d8a;
+  --text-faint: #3e4c58;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-panel: var(--bg-panel);
+  --color-bg-raised: var(--bg-raised);
+  --color-border: var(--border);
+  --color-border-bright: var(--border-bright);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-text-faint: var(--text-faint);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, "JetBrains Mono", "Fira Code", Consolas, monospace;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-feature-settings: "ss01", "cv01";
+  letter-spacing: 0.01em;
+}
+
+/* Subtle scanline overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(34, 211, 155, 0.015) 0px,
+    rgba(34, 211, 155, 0.015) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 50;
+  mix-blend-mode: screen;
+}
+
+/* Radial terminal vignette */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 49;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.blink { animation: blink 1s step-end infinite; }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px var(--accent-glow); }
+  50% { box-shadow: 0 0 18px var(--accent-glow); }
+}
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* Panel frame — corner brackets */
+.frame {
+  position: relative;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+.frame::before,
+.frame::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--accent);
+  border-style: solid;
+}
+.frame::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+.frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+/* Subtle input ring on focus */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 1px var(--accent-glow);
+}
+
+/* Native select arrow recolor */
+select {
+  background-color: var(--bg-raised);
+  color: var(--text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
+/* Tabular numeric alignment for money columns */
+.tabular { font-variant-numeric: tabular-nums; }

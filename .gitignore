@@ -1,0 +1,53 @@
+# ---- Secrets & wallet material (NEVER COMMIT) ----
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.keystore
+secrets/
+wallet.json
+keystore/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+
+# ---- Databases / local state ----
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.db
+data/
+logs/
+*.log
+
+# ---- Node / Next.js ----
+node_modules/
+.next/
+.turbo/
+out/
+next-env.d.ts
+
+# ---- Editor / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~

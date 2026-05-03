@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/security/advisories/new
+    about: |
+      Do NOT file public issues for security problems. Open a private
+      security advisory instead — see SECURITY.md for the policy.
+  - name: Operator question
+    url: https://github.com/discussions
+    about: |
+      How-to / setup / "is this normal" questions belong in Discussions,
+      not the issue tracker.

@@ -1,0 +1,17 @@
+autotrader
+Copyright 2026 The autotrader contributors
+
+This product includes software developed by the autotrader contributors.
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+----------------------------------------------------------------------
+
+DISCLAIMER
+
+This software is for educational and research purposes. It can place
+real orders against real brokerage accounts and on-chain wallets, and
+it can lose money. It is NOT financial advice. The authors and
+contributors accept NO liability for trading losses, broker actions,
+or any other use of this code. See README.md and SECURITY.md for the
+full picture before connecting live credentials.

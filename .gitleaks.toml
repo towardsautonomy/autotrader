@@ -1,0 +1,35 @@
+title = "autotrader gitleaks config"
+
+# Use default rule set plus catch the specific secret shapes we use.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "eth-private-key"
+description = "Ethereum / Polygon EOA private key (0x + 64 hex)"
+regex = '''(?i)(?:private[_-]?key|POLYMARKET_PRIVATE_KEY)\s*[:=]\s*["']?0x[a-f0-9]{64}'''
+tags = ["key", "crypto"]
+
+[[rules]]
+id = "alpaca-api-key"
+description = "Alpaca API key"
+regex = '''(?i)ALPACA_API_(KEY|SECRET)\s*[:=]\s*["']?[A-Z0-9]{16,}'''
+tags = ["key", "alpaca"]
+
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API key"
+regex = '''sk-ant-[a-zA-Z0-9_-]{20,}'''
+tags = ["key", "anthropic"]
+
+[allowlist]
+description = "Allow placeholders in .env.example"
+paths = [
+  '''\.env\.example$''',
+  '''\.gitleaks\.toml$''',
+  '''README\.md$''',
+]
+regexes = [
+  '''replace_me''',
+  '''0x\.\.\.replace_me''',
+]
